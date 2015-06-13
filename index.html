@@ -1,0 +1,55 @@
+<html lang="en" ng-app="todoApp">
+  <head>
+  	<meta charset="UTF-8">
+  	<title>TODO - MVC</title>
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="//code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="controllers/todocontroller.js"></script>
+    <style>
+    .strikeout
+    {
+      text-decoration: line-through;
+      opacity: 0.5;
+      filter: Alpha(opacity=50); /* IE8 and earlier */
+    }
+    .todo_box
+    {
+      border-bottom: 1px solid black;
+    }
+    .todo_container .todo_box:first-child
+    {
+      border-top:1px solid black;
+    }
+    </style>
+  </head>
+  <body>
+  	<div class = "container col-xs-offset-4 col-xs-4 col-xs-offset-4" ng-controller="todoController" ng-cloak>
+      <form ng-submit="addToDo(todo)">
+        <input type="checkbox" ng-show="todolist.length" ng-model="selectAll" ng-click="toggleDisplayAll(selectAll)"><label>Todo:</label><input type = "text" ng-model="todo" required>
+      </form>
+      <div class="todo_container">
+        <div class="row todo_box" ng-repeat = "todos in todolist | filter: statusFilter">
+          <div class = "col-xs-11">
+            <input type="checkbox" ng-model = "todos.inactive" ng-click="todos.inactive = !todos.inactive">
+              <span  ng-class="{strikeout : todos.inactive}" ng-dblclick="editToDo(todos)">{{todos.name}}</span>
+          </div>
+          <span class = "col-xs-1"><a href="" ng-click="todolist.splice($index,1);">x</a></span>
+          <span class="clearfix"></span>
+        </div>
+        <div class="row">
+          <span>{{countActive}} items are remaining</span>
+          <span><a ui-sref='all' href="">All</a></span>
+          <span><a ui-sref='all.active' href="">Active</a></span>
+          <span><a ui-sref='all.completed' href="">Completed</a></span>
+          <span><a ng-click = 'clearCompleted()' href="">Clear Completed</a></span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
