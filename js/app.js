@@ -8,12 +8,12 @@ angular.module('todoApp', ["ui.router"])
 		controller : 'todoController'
 	})
 	.state('all.active',{
-		url : "/active",
+		url : "active",
 		todoState : "active",
 		controller : 'todoController'
 	})
 	.state('all.completed',{
-		url : "/completed",
+		url : "completed",
 		todoState : "completed",
 		controller : 'todoController'
 	});
