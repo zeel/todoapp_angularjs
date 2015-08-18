@@ -1,0 +1,28 @@
+{
+  "name": "todos",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zeel/todoapp_angularjs",
+  "authors": [
+    "zeel <kshah215@gmail.com>"
+  ],
+  "description": "todo mvc app inangularjs",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "todomvc"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-mocks": "~1.4.4",
+    "ui-router": "~0.2.15"
+  }
+}

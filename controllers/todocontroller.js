@@ -45,3 +45,6 @@ angular.module('todoApp')
     })
   }
 }])
+.controller("testingController", ["$scope", function($scope){
+  $scope.val = 2;
+}]);
