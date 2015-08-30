@@ -1,7 +1,6 @@
 angular.module('todoApp', ["ui.router"])
-.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider)
+.config(["$stateProvider", function($stateProvider)
 {
-	$urlRouterProvider.otherwise("/");
 	$stateProvider.state('all',{
 		url : "/",
 		todoState : "all",

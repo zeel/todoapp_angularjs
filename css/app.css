@@ -1,14 +1,19 @@
-    .strikeout
-    {
-      text-decoration: line-through;
-      opacity: 0.5;
-      filter: Alpha(opacity=50); /* IE8 and earlier */
-    }
-    .todo_box
-    {
-      border-bottom: 1px solid black;
-    }
-    .todo_container .todo_box:first-child
-    {
-      border-top:1px solid black;
-    }
+.container
+{
+ width: 40%;
+ margin: 20px auto; 
+}
+.strikeout
+{
+  text-decoration: line-through;
+  opacity: 0.5;
+  filter: Alpha(opacity=50); /* IE8 and earlier */
+}
+.todo_box
+{
+  border-bottom: 1px solid black;
+}
+.todo_container .todo_box:first-child
+{
+  border-top:1px solid black;
+}

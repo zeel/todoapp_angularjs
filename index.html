@@ -6,20 +6,21 @@
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-  	<div class = "container col-xs-offset-4 col-xs-4 col-xs-offset-4" ng-controller="todoController" ng-cloak>
+  	<div class = "container" ng-controller="todoController" ng-cloak>
       <form ng-submit="addToDo(todo)">
-        <input type="checkbox" ng-show="todolist.length" ng-model="selectAll" ng-click="toggleDisplayAll(selectAll)"><label>Todo:</label><input type = "text" ng-model="todo" required>
+        <input type="checkbox" ng-show="todolist.length" ng-model="selectAll" ng-click="toggleDisplayAll(selectAll)">
+        <label>Todo:</label>
+        <input type = "text" ng-model="todo" required>
       </form>
       <div class="todo_container">
-        <div class="row todo_box" ng-repeat = "todos in todolist | filter: statusFilter">
-          <div class = "col-xs-11">
-            <input type="checkbox" ng-model = "todos.inactive" ng-click="todos.inactive = !todos.inactive">
-              <span  ng-class="{strikeout : todos.inactive}" ng-dblclick="editToDo(todos)">{{todos.name}}</span>
+        <div class="todo_box" ng-repeat = "todos in todolist | filter: statusFilter track by $index">
+          <div style="display:inline-block">
+            <input type="checkbox" ng-model = "todos.inactive" >
+              <span  ng-class="{strikeout : todos.inactive}">{{todos.name}}</span>
           </div>
-          <span class = "col-xs-1"><a href="" ng-click="todolist.splice($index,1);">x</a></span>
-          <span class="clearfix"></span>
+          <span style="display:inline-block;float:right;"><a href="" ng-click="todolist.splice($index,1);">x</a></span>
         </div>
-        <div class="row">
+        <div>
           <span>{{countActive}} items are remaining</span>
           <span><a ui-sref='all' href="">All</a></span>
           <span><a ui-sref='all.active' href="">Active</a></span>

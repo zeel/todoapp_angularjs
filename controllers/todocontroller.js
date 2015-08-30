@@ -3,7 +3,7 @@ angular.module('todoApp')
 {
   $scope.todolist = []
   $scope.countActive = 0;
-  $scope.statusFilter = null;
+  $scope.statusFilter = undefined;
   // Monitor the current route for changes and adjust the filter accordingly.
     $scope.$on('$stateChangeSuccess', function () 
     {
@@ -18,8 +18,9 @@ angular.module('todoApp')
       }
       else if(todostate == "all")
       {
-        $scope.statusFilter = null;
+        $scope.statusFilter = undefined;
       }
+      console.log($scope.statusFilter);
     });
   $scope.$watch("todolist", function(newValue, oldValue)
   	{
@@ -44,7 +45,4 @@ angular.module('todoApp')
       return !item.inactive;
     })
   }
-}])
-.controller("testingController", ["$scope", function($scope){
-  $scope.val = 2;
 }]);
