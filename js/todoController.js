@@ -25,6 +25,15 @@ define([],function()
     $scope.$watch("todolist", function(newValue, oldValue)
     	{
     		$scope.countActive = $filter('filter')($scope.todolist, { inactive: false }).length;
+        //if all todos are checked make selectAll true
+        if($scope.todolist.length && $scope.countActive == 0)
+        {
+          $scope.selectAll = true;
+        }
+        else
+        {
+          $scope.selectAll = false;
+        }
     	}, true);
     $scope.addToDo = function(todoString)
     {
@@ -35,7 +44,7 @@ define([],function()
     $scope.toggleDisplayAll = function(selectAll)
     {
     	$scope.todolist.forEach(function(item){
-    		item.inactive = !selectAll;
+    		item.inactive = selectAll;
     	})
     }
     $scope.clearCompleted = function()

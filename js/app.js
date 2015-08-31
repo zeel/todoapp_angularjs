@@ -1,4 +1,4 @@
-define(['config', 'todoController'],function(config, todoController)
+define(['angular','angularUIRouter', 'config', 'todoController'],function(angular,angularUIRouter, config, todoController)
 {
 	var app = angular.module('todoApp', ['ui.router']);
 	app.config(config);
