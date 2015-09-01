@@ -17,3 +17,8 @@
 {
   border-top:1px solid black;
 }
+.active
+{
+	border: 1px solid black;
+	border-radius: 5px;
+}

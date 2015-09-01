@@ -1,27 +1,11 @@
 define([],function()
 {
   'use strict';
-  function todoController($scope, $filter, $state){
+  function todoController($scope, $filter,$location){
     $scope.todolist = []
     $scope.countActive = 0;
     $scope.statusFilter = undefined;
-    // Monitor the current route for changes and adjust the filter accordingly.
-    $scope.$on('$stateChangeSuccess', function () 
-    {
-      var todostate = $state.current.todoState;
-      if(todostate == "completed")
-      {
-        $scope.statusFilter = {inactive : true};
-      }
-      else if(todostate == "active")
-      {
-        $scope.statusFilter = {inactive : false};
-      }
-      else if(todostate == "all")
-      {
-        $scope.statusFilter = undefined;
-      }
-    });
+    $scope.showType = "all";
     $scope.$watch("todolist", function(newValue, oldValue)
     	{
     		$scope.countActive = $filter('filter')($scope.todolist, { inactive: false }).length;
@@ -41,6 +25,11 @@ define([],function()
     	//remove the previously entered text
     	$scope.todo = "";
     }
+    $scope.changeShowType = function(showType)
+    {
+      $location.search('showType',showType);
+      $scope.showType = showType;
+    }
     $scope.toggleDisplayAll = function(selectAll)
     {
     	$scope.todolist.forEach(function(item){
@@ -54,7 +43,27 @@ define([],function()
         return !item.inactive;
       })
     }
+    //Monitor the current route for changes and adjust the filter accordingly.
+    $scope.$watch(function() {
+     return $location.search();
+   }, 
+    function(newValue)
+    {
+      $scope.showType = newValue.showType;
+      if(newValue.showType == "completed")
+      {
+        $scope.statusFilter = {inactive : true};
+      }
+      else if(newValue.showType == "active")
+      {
+        $scope.statusFilter = {inactive : false};
+      }
+      else if(newValue.showType == "all")
+      {
+        $scope.statusFilter = undefined;
+      }
+    },true);
   };
-  todoController.$inject = ["$scope", "$filter", "$state"];
+  todoController.$inject = ["$scope", "$filter", "$location"];
   return todoController;
 });

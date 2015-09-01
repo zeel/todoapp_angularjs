@@ -22,9 +22,9 @@
         </div>
         <div>
           <span>{{countActive}} items are remaining</span>
-          <span><a ui-sref='all' href="">All</a></span>
-          <span><a ui-sref='all.active' href="">Active</a></span>
-          <span><a ui-sref='all.completed' href="">Completed</a></span>
+          <span><a ng-class="{active : showType == 'all'}" ng-click="changeShowType('all')" href="">All</a></span>
+          <span><a ng-class="{active : showType == 'active'}" ng-click="changeShowType('active')" href="">Active</a></span>
+          <span><a ng-class="{active : showType == 'completed'}" ng-click="changeShowType('completed')" href="">Completed</a></span>
           <span><a ng-click = 'clearCompleted()' href="">Clear Completed</a></span>
         </div>
       </div>
