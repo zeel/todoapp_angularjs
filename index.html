@@ -18,7 +18,7 @@
             <input type="checkbox" ng-model = "todos.inactive" >
               <span  ng-class="{strikeout : todos.inactive}">{{todos.name}}</span>
           </div>
-          <span style="display:inline-block;float:right;"><a href="" ng-click="todolist.splice($index,1);">x</a></span>
+          <span style="display:inline-block;float:right;"><a href="" ng-click="removeToDo($index);">x</a></span>
         </div>
         <div>
           <span>{{countActive}} items are remaining</span>

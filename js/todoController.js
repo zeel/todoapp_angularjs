@@ -25,10 +25,12 @@ define([],function()
     	//remove the previously entered text
     	$scope.todo = "";
     }
+    $scope.removeToDo = function(index){
+      $scope.todolist.splice(index,1);
+    }
     $scope.changeShowType = function(showType)
     {
       $location.search('showType',showType);
-      $scope.showType = showType;
     }
     $scope.toggleDisplayAll = function(selectAll)
     {
