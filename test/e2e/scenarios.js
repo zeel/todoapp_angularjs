@@ -17,4 +17,11 @@ describe('Protractor Demo App', function() {
     expect(element(by.binding('countActive')).getText()).toEqual('0');
     expect(element.all(by.repeater('todos in todolist')).count()).toEqual(0);
   })
+  it('clicking on selectall will make countActive 0', function(){
+    element(by.model('todo')).sendKeys("testingtodo1").sendKeys(protractor.Key.ENTER);
+    element(by.model('todo')).sendKeys("testingtodo2").sendKeys(protractor.Key.ENTER);
+    expect(element(by.binding('countActive')).getText()).toEqual('2');
+    element(by.model('selectAll')).click();
+    expect(element(by.binding('countActive')).getText()).toEqual('0');
+  })
 });
