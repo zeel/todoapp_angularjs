@@ -3,13 +3,10 @@ exports.config = {
   specs: [
     'e2e/*.js'
   ],
-  multiCapabilities: [{
-    browserName: 'firefox'
-  }, {
-    browserName: 'chrome'
-  }],
-  chromeOnly: true,
-  baseUrl: 'http://localhost:8000',
+capabilities: {
+    'browserName': 'chrome'
+  },
+  baseUrl: 'http://localhost:8000/',
   framework: 'jasmine2',
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
