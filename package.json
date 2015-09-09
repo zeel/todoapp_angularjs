@@ -1,0 +1,30 @@
+{
+  "name": "todoapp_angularjs",
+  "version": "1.0.0",
+  "description": "todo app for angularjs",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "karma": "^0.13.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeel/todoapp_angularjs.git"
+  },
+  "keywords": [
+    "todo",
+    "angularjs"
+  ],
+  "author": "zeel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeel/todoapp_angularjs/issues"
+  },
+  "homepage": "https://github.com/zeel/todoapp_angularjs"
+}
