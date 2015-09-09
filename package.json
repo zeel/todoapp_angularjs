@@ -7,7 +7,16 @@
     "test": "test"
   },
   "dependencies": {
-    "karma": "^0.13.9"
+    "bower": "^1.5.2",
+    "gulp": "^3.9.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-jasmine": "^0.3.6",
+    "karma-requirejs": "^0.2.2",
+    "protractor": "^2.2.0",
+    "requirejs": "^2.1.20"
   },
   "devDependencies": {},
   "scripts": {
@@ -17,6 +26,7 @@
     "type": "git",
     "url": "https://github.com/zeel/todoapp_angularjs.git"
   },
+  "postinstall": "node node_modules/bower/bin/bower install"
   "keywords": [
     "todo",
     "angularjs"
