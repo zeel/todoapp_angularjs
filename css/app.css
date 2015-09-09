@@ -22,3 +22,8 @@
 	border: 1px solid black;
 	border-radius: 5px;
 }
+.remove_todo_close
+{
+	display:inline-block;
+	float:right;
+}

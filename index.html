@@ -18,10 +18,10 @@
             <input type="checkbox" ng-model = "todos.inactive" >
               <span  ng-class="{strikeout : todos.inactive}">{{todos.name}}</span>
           </div>
-          <span style="display:inline-block;float:right;"><a href="" ng-click="removeToDo($index);">x</a></span>
+          <a class = "remove_todo_close" href="" ng-click="removeToDo($index);">x</a>
         </div>
         <div>
-          <span>{{countActive}} items are remaining</span>
+          <span><span>{{countActive}}</span> items are remaining</span>
           <span><a ng-class="{active : showType == 'all'}" ng-click="changeShowType('all')" href="">All</a></span>
           <span><a ng-class="{active : showType == 'active'}" ng-click="changeShowType('active')" href="">Active</a></span>
           <span><a ng-class="{active : showType == 'completed'}" ng-click="changeShowType('completed')" href="">Completed</a></span>
