@@ -1,5 +1,5 @@
 # TODO APP 
-![travis ci build status](https://travis-ci.org/zeel/todoapp_angularjs.svg?branch=master)
+[![Build Status](https://travis-ci.org/zeel/todoapp_angularjs.svg?branch=master)](https://travis-ci.org/zeel/todoapp_angularjs)
 
 The github repo for todo app created using Angular-js with unit testing and e2e testing
 
