@@ -1,4 +1,6 @@
-# todoapp_angularjs
+# TODO APP 
+https://travis-ci.org/zeel/todoapp_angularjs.svg?branch=master
+
 The github repo for todo app created using Angular-js with unit testing and e2e testing
 
 1. [Demo](http://zeel.github.io/#/)
