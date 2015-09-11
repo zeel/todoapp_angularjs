@@ -22,6 +22,7 @@
     "tests"
   ],
   "dependencies": {
+    "angular-local-storage": "~0.2.2",
     "angular-mocks": "~1.4.4",
     "requirejs": "~2.1.20"
   }

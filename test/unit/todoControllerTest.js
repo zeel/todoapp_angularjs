@@ -1,16 +1,23 @@
-define(['angular', 'angularMocks','todoController'],function (angular,mocks, todoController) {
+define(['angular', 'angularMocks','todoController', 'angularLocalStorage'],function (angular,mocks, todoController, angularLocalStorage) {
 	'use strict';
 	describe("Testing todoController", function() {
 		var scope,location;
-		beforeEach(mocks.inject(function($controller, $rootScope, $filter,$location){
+		beforeEach(module('LocalStorageModule'));
+		beforeEach(mocks.inject(function($controller, $rootScope, $filter,$location, localStorageService){
 			scope = $rootScope.$new();
 			location = $location;
 			$controller(todoController, {
 				$scope : scope,
 				$filter : $filter,
-				$location : $location
+				$location : $location,
+				localStorageService : localStorageService
 			});
 			
+		}));
+		//clear localstorage to run previous unit test.
+		afterEach(mocks.inject(function(localStorageService)
+		{
+			localStorageService.clearAll();
 		}));
 		it('scope should have todolist defined', function() {
 			expect(scope.todolist).toBeDefined();

@@ -1,11 +1,20 @@
 define([],function()
 {
   'use strict';
-  function todoController($scope, $filter,$location){
+  function todoController($scope, $filter,$location,localStorageService){
     $scope.todolist = []
     $scope.countActive = 0;
     $scope.statusFilter = undefined;
     $scope.showType = "all";
+    if(localStorageService.get('todolist'))
+    {
+      $scope.todolist = localStorageService.get('todolist');
+    }
+    else
+    {
+      localStorageService.set('todolist', $scope.todolist);
+    }
+    localStorageService.bind($scope, 'todolist');
     $scope.$watch("todolist", function(newValue, oldValue)
     	{
     		$scope.countActive = $filter('filter')($scope.todolist, { inactive: false }).length;
@@ -66,6 +75,6 @@ define([],function()
       }
     },true);
   };
-  todoController.$inject = ["$scope", "$filter", "$location"];
+  todoController.$inject = ["$scope", "$filter", "$location", "localStorageService"];
   return todoController;
 });

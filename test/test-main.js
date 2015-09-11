@@ -18,10 +18,12 @@ require.config({
   paths: {
         angular : '/base/bower_components/angular/angular',
         angularMocks : '/base/bower_components/angular-mocks/angular-mocks',
+        angularLocalStorage : '/base/bower_components/angular-local-storage/dist/angular-local-storage.min',
     },
     shim: {
       angular: {exports : 'angular'},
-      angularMocks: {deps: ['angular'], 'exports': 'angular.mock'}
+      angularMocks: {deps: ['angular'], 'exports': 'angular.mock'},
+      angularLocalStorage : { deps: ['angular'] }
     },
   
 
