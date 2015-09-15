@@ -1,0 +1,31 @@
+@border: 1px solid black;
+.todo_box
+{
+  border-bottom: @border;
+}
+.todo_container .todo_box:first-child
+{
+  border-top: @border;
+}
+.active
+{
+	border: @border;
+	border-radius: 5px;
+}
+.container
+{
+ width: 40%;
+ margin: 20px auto; 
+}
+.strikeout
+{
+  text-decoration: line-through;
+  opacity: 0.5;
+  filter: Alpha(opacity=50); /* IE8 and earlier */
+}
+
+.remove_todo_close
+{
+	display:inline-block;
+	float:right;
+}
